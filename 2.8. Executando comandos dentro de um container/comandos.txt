@@ -1,0 +1,7 @@
+docker exec app-java ps -ef
+
+docker exec app-java jstack -l 1
+
+docker exec app-java jstack -l 1 >> thread-dump-appjava.txt
+
+docker exec app-java jmap -dump:live,format=b,file=headdump-app-java.hprof 1
