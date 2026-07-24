@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: algatransito-api
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=algatransito;encrypt=true;trustServerCertificate=true;
+    username: sa
+    password: root
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
