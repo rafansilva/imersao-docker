@@ -1,0 +1,8 @@
+.col-status a {
+  text-decoration: none;
+  color: black;
+}
+
+.col-status a:hover{
+  text-decoration: underline;
+}
