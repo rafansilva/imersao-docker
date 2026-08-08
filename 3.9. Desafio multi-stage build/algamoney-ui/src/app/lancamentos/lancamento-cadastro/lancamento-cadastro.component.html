@@ -1,0 +1,62 @@
+<div class="container">
+  <form autocomplete="off" (submit)="salvar()" [formGroup]="lancamentoForm">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{ editando ? "Edição de" : "Novo" }} Lançamento</h1>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="tipos"  name="tipoLancamento" formControlName="tipoLancamento"></p-selectButton>
+      </div>
+
+      <div class="col-6 md:col-3 p-fluid">
+        <label>Vencimento</label>
+        <p-calendar name="vencimento" dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="true" formControlName="dataVencimento"></p-calendar>
+
+        <app-message [control]="lancamentoForm.get('dataVencimento')" error="required" text="Informe uma data de vencimento"></app-message>
+      </div>
+
+      <div class="col-6 md:col-3 p-fluid">
+        <label>{{ getTipo === "RECEITA" ? "Recebimento" : "Pagamento" }}</label>
+        <p-calendar dateFormat="dd/mm/yy" [showIcon]="true" name="dataPagamento" formControlName="dataPagamento"></p-calendar>
+      </div>
+
+      <div class="col-12 md:col-9 p-fluid">
+        <label>Descrição</label>
+        <input pInputText type="text" name="descricao" formControlName="descricao">
+
+        <app-message [control]="lancamentoForm.get('descricao')" error="obrigatorio" text="Informe a descrição"></app-message>
+
+        <app-message [control]="lancamentoForm.get('descricao')" error="tamanhoMinimo" text="Mínimo de {{ lancamentoForm.get('descricao').errors?.tamanhoMinimo?.tamanho }} caracteres."></app-message>
+      </div>
+
+      <div class="col-12 md:col-3 p-fluid">
+        <label>Valor</label>
+        <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" placeholder="0,00" name="valor" formControlName="valor"></p-inputNumber>
+      </div>
+
+       <div class="col-12 md:col-6 p-fluid" formGroupName="categoria">
+        <label>Categoria</label>
+        <p-dropdown [options]="categorias" placeholder="Selecione" name="categoria" formControlName="codigo"></p-dropdown>
+      </div>
+
+       <div class="col-12 md:col-6 p-fluid" formGroupName="pessoa">
+        <label>Pessoa</label>
+        <p-dropdown [options]="pessoas" [filter]="true" placeholder="Selecione" name="pessoa" formControlName="codigo"></p-dropdown>
+      </div>
+
+       <div class="col-12 p-fluid">
+        <label>Observação</label>
+        <textarea name="observacao" pInputTextarea rows="3" formControlName="observacao"></textarea>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="lancamentoForm.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-info" (click)="novo()"></button>
+        <a routerLink="/lancamentos">Voltar para a pesquisa</a>
+      </div>
+    </div>
+
+  </form>
+</div>

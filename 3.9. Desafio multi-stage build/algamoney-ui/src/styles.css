@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  color: #404C51;
+}
+
+a {
+  color: #337AB7;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+label {
+  font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+
+@media (min-width: 40em) {
+  .col-valor-header {
+    width: 120px;
+    text-align: right !important;
+  }
+
+  .col-valor {
+    text-align: right !important;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data {
+    text-align: center !important;
+  }
+
+  .col-acoes-header {
+    width: 120px;
+  }
+
+  .col-acoes {
+    width: 120px;
+    text-align: center !important;
+  }
+
+  .col-acoes .p-button {
+    margin: 1px;
+  }
+}
