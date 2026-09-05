@@ -1,0 +1,15 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: algatransito-api
+
+  datasource:
+    url: jdbc:sqlserver://${DB_HOST:localhost:1433};databaseName=${DB_NAME:algatransito};encrypt=true;trustServerCertificate=true;
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+#ipconfig | findstr -i ipv4
+#docker run --rm --name algatransito -e DB_HOST= -e DB_NAME=algatransito -e DB_USERNAME=sa -e DB_PASSWORD=root -p 8081:8081 algaworks/algatransito-api:1.0.0
